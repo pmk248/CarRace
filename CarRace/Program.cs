@@ -39,7 +39,7 @@ namespace CarRace
 
         public string GetProgressBar()
         {
-            int totalBars = 100; // Total number of bars in the progress bar
+            int totalBars = 100; 
             int filledBars = (int)(CalculatePercentage() / 100 * totalBars);
             int emptyBars = totalBars - filledBars;
 
@@ -78,17 +78,15 @@ namespace CarRace
                 {
                     await Task.Delay(1000);
 
-                    // Collect all car progress information
                     var progressLines = new List<string>();
                     foreach (var car in cars)
                     {
                         progressLines.Add($"{car.Name.PadRight(5)}: {car.GetProgressBar()} {car.CalculatePercentage():F2}%");
                     }
 
-                    // Clear the console
+
                     Console.Clear();
 
-                    // Print the collected progress information
                     Console.WriteLine("-- Race Progress --");
                     foreach (var line in progressLines)
                     {
